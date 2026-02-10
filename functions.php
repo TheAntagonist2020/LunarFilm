@@ -47,7 +47,7 @@ if ( ! function_exists( 'lunarfilm_setup' ) ) {
 		add_theme_support(
 			'custom-background',
 			array(
-				'default-color' => '0a0a0a',
+				'default-color' => '0a1520',
 				'default-image' => '',
 			)
 		);
