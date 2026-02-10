@@ -104,3 +104,187 @@ function lunarfilm_scripts() {
 	wp_enqueue_style( 'lunarfilm-style', get_stylesheet_uri(), array(), LUNARFILM_VERSION );
 }
 add_action( 'wp_enqueue_scripts', 'lunarfilm_scripts' );
+
+/**
+ * Register custom post types for film content.
+ */
+function lunarfilm_register_post_types() {
+	// Register Reviews post type
+	register_post_type(
+		'lunarfilm_review',
+		array(
+			'labels'       => array(
+				'name'          => esc_html__( 'Reviews', 'lunarfilm' ),
+				'singular_name' => esc_html__( 'Review', 'lunarfilm' ),
+				'add_new'       => esc_html__( 'Add New', 'lunarfilm' ),
+				'add_new_item'  => esc_html__( 'Add New Review', 'lunarfilm' ),
+				'edit_item'     => esc_html__( 'Edit Review', 'lunarfilm' ),
+				'new_item'      => esc_html__( 'New Review', 'lunarfilm' ),
+				'view_item'     => esc_html__( 'View Review', 'lunarfilm' ),
+				'all_items'     => esc_html__( 'All Reviews', 'lunarfilm' ),
+			),
+			'public'       => true,
+			'has_archive'  => true,
+			'show_in_rest' => true,
+			'menu_icon'    => 'dashicons-star-filled',
+			'supports'     => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments' ),
+			'rewrite'      => array( 'slug' => 'reviews' ),
+		)
+	);
+
+	// Register Essays post type
+	register_post_type(
+		'lunarfilm_essay',
+		array(
+			'labels'       => array(
+				'name'          => esc_html__( 'Essays', 'lunarfilm' ),
+				'singular_name' => esc_html__( 'Essay', 'lunarfilm' ),
+				'add_new'       => esc_html__( 'Add New', 'lunarfilm' ),
+				'add_new_item'  => esc_html__( 'Add New Essay', 'lunarfilm' ),
+				'edit_item'     => esc_html__( 'Edit Essay', 'lunarfilm' ),
+				'new_item'      => esc_html__( 'New Essay', 'lunarfilm' ),
+				'view_item'     => esc_html__( 'View Essay', 'lunarfilm' ),
+				'all_items'     => esc_html__( 'All Essays', 'lunarfilm' ),
+			),
+			'public'       => true,
+			'has_archive'  => true,
+			'show_in_rest' => true,
+			'menu_icon'    => 'dashicons-book-alt',
+			'supports'     => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments' ),
+			'rewrite'      => array( 'slug' => 'essays' ),
+		)
+	);
+
+	// Register Prognostications post type
+	register_post_type(
+		'lunarfilm_prognostication',
+		array(
+			'labels'       => array(
+				'name'          => esc_html__( 'Prognostications', 'lunarfilm' ),
+				'singular_name' => esc_html__( 'Prognostication', 'lunarfilm' ),
+				'add_new'       => esc_html__( 'Add New', 'lunarfilm' ),
+				'add_new_item'  => esc_html__( 'Add New Prognostication', 'lunarfilm' ),
+				'edit_item'     => esc_html__( 'Edit Prognostication', 'lunarfilm' ),
+				'new_item'      => esc_html__( 'New Prognostication', 'lunarfilm' ),
+				'view_item'     => esc_html__( 'View Prognostication', 'lunarfilm' ),
+				'all_items'     => esc_html__( 'All Prognostications', 'lunarfilm' ),
+			),
+			'public'       => true,
+			'has_archive'  => true,
+			'show_in_rest' => true,
+			'menu_icon'    => 'dashicons-awards',
+			'supports'     => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments' ),
+			'rewrite'      => array( 'slug' => 'prognostications' ),
+		)
+	);
+}
+add_action( 'init', 'lunarfilm_register_post_types' );
+
+/**
+ * Register film metadata fields.
+ */
+function lunarfilm_register_meta_boxes() {
+	$post_types = array( 'lunarfilm_review', 'lunarfilm_essay', 'lunarfilm_prognostication', 'post' );
+
+	foreach ( $post_types as $post_type ) {
+		add_meta_box(
+			'lunarfilm_film_details',
+			esc_html__( 'Film Details', 'lunarfilm' ),
+			'lunarfilm_film_details_callback',
+			$post_type,
+			'normal',
+			'high'
+		);
+	}
+}
+add_action( 'add_meta_boxes', 'lunarfilm_register_meta_boxes' );
+
+/**
+ * Film details meta box callback.
+ *
+ * @param WP_Post $post The post object.
+ */
+function lunarfilm_film_details_callback( $post ) {
+	wp_nonce_field( 'lunarfilm_film_details_nonce', 'lunarfilm_film_details_nonce' );
+
+	$director = get_post_meta( $post->ID, '_lunarfilm_director', true );
+	$year     = get_post_meta( $post->ID, '_lunarfilm_year', true );
+	$genre    = get_post_meta( $post->ID, '_lunarfilm_genre', true );
+	$studio   = get_post_meta( $post->ID, '_lunarfilm_studio', true );
+	$runtime  = get_post_meta( $post->ID, '_lunarfilm_runtime', true );
+	$rating   = get_post_meta( $post->ID, '_lunarfilm_rating', true );
+	?>
+	<p>
+		<label for="lunarfilm_director"><?php esc_html_e( 'Director', 'lunarfilm' ); ?></label><br>
+		<input type="text" id="lunarfilm_director" name="lunarfilm_director" value="<?php echo esc_attr( $director ); ?>" style="width: 100%;">
+	</p>
+	<p>
+		<label for="lunarfilm_year"><?php esc_html_e( 'Year', 'lunarfilm' ); ?></label><br>
+		<input type="text" id="lunarfilm_year" name="lunarfilm_year" value="<?php echo esc_attr( $year ); ?>" style="width: 100%;">
+	</p>
+	<p>
+		<label for="lunarfilm_genre"><?php esc_html_e( 'Genre', 'lunarfilm' ); ?></label><br>
+		<input type="text" id="lunarfilm_genre" name="lunarfilm_genre" value="<?php echo esc_attr( $genre ); ?>" style="width: 100%;">
+	</p>
+	<p>
+		<label for="lunarfilm_studio"><?php esc_html_e( 'Studio', 'lunarfilm' ); ?></label><br>
+		<input type="text" id="lunarfilm_studio" name="lunarfilm_studio" value="<?php echo esc_attr( $studio ); ?>" style="width: 100%;">
+	</p>
+	<p>
+		<label for="lunarfilm_runtime"><?php esc_html_e( 'Runtime (minutes)', 'lunarfilm' ); ?></label><br>
+		<input type="number" id="lunarfilm_runtime" name="lunarfilm_runtime" value="<?php echo esc_attr( $runtime ); ?>" style="width: 100%;">
+	</p>
+	<p>
+		<label for="lunarfilm_rating"><?php esc_html_e( 'Star Rating (0.5 to 5.0)', 'lunarfilm' ); ?></label><br>
+		<select id="lunarfilm_rating" name="lunarfilm_rating" style="width: 100%;">
+			<option value=""><?php esc_html_e( 'Select Rating', 'lunarfilm' ); ?></option>
+			<?php
+			for ( $i = 0.5; $i <= 5.0; $i += 0.5 ) {
+				printf(
+					'<option value="%s"%s>%s</option>',
+					esc_attr( $i ),
+					selected( $rating, $i, false ),
+					esc_html( str_repeat( '★', floor( $i ) ) . ( fmod( $i, 1 ) === 0.5 ? '½' : '' ) . ' (' . $i . ')' )
+				);
+			}
+			?>
+		</select>
+	</p>
+	<?php
+}
+
+/**
+ * Save film metadata.
+ *
+ * @param int $post_id The post ID.
+ */
+function lunarfilm_save_film_details( $post_id ) {
+	if ( ! isset( $_POST['lunarfilm_film_details_nonce'] ) ) {
+		return;
+	}
+
+	if ( ! wp_verify_nonce( $_POST['lunarfilm_film_details_nonce'], 'lunarfilm_film_details_nonce' ) ) {
+		return;
+	}
+
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
+
+	if ( ! current_user_can( 'edit_post', $post_id ) ) {
+		return;
+	}
+
+	$fields = array( 'director', 'year', 'genre', 'studio', 'runtime', 'rating' );
+
+	foreach ( $fields as $field ) {
+		if ( isset( $_POST[ 'lunarfilm_' . $field ] ) ) {
+			update_post_meta(
+				$post_id,
+				'_lunarfilm_' . $field,
+				sanitize_text_field( $_POST[ 'lunarfilm_' . $field ] )
+			);
+		}
+	}
+}
+add_action( 'save_post', 'lunarfilm_save_film_details' );

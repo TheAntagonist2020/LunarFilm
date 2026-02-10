@@ -299,6 +299,65 @@ article.page {
 	z-index: 100000;
 }
 
+/* === Film Reviews & Metadata === */
+.film-rating {
+	margin: 1rem 0;
+	font-size: 1.5rem;
+	color: #c9a961;
+}
+
+.star-full {
+	color: #c9a961;
+}
+
+.star-half {
+	color: #c9a961;
+	opacity: 0.6;
+}
+
+.star-empty {
+	color: #1a2938;
+}
+
+.film-details {
+	margin: 2rem 0;
+	padding: 1.5rem;
+	background: #1a2938;
+	border-left: 3px solid #c9a961;
+}
+
+.film-details h3 {
+	margin-top: 0;
+	color: #c9a961;
+	font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	font-size: 1rem;
+}
+
+.film-details ul {
+	list-style: none;
+	padding: 0;
+	margin: 0.5rem 0 0;
+}
+
+.film-details li {
+	margin-bottom: 0.5rem;
+}
+
+.film-metadata {
+	color: #888;
+	font-size: 0.875rem;
+	margin-top: 0.5rem;
+}
+
+.film-info,
+.film-director,
+.film-year,
+.awards-year {
+	margin-right: 0.5rem;
+}
+
 /* === Responsive === */
 @media (max-width: 768px) {
 	.menu-toggle {
