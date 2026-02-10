@@ -38,7 +38,7 @@
 			$lunarfilm_description = get_bloginfo( 'description', 'display' );
 			if ( $lunarfilm_description || is_customize_preview() ) :
 				?>
-				<p class="site-description"><?php echo $lunarfilm_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+				<p class="site-description"><?php echo esc_html( $lunarfilm_description ); ?></p>
 			<?php endif; ?>
 		</div>
 

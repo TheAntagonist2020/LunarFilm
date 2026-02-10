@@ -53,14 +53,19 @@ if ( ! function_exists( 'lunarfilm_setup' ) ) {
 		);
 
 		add_theme_support( 'customize-selective-refresh-widgets' );
-
-		// Set content width.
-		if ( ! isset( $content_width ) ) {
-			$content_width = 1200;
-		}
 	}
 }
 add_action( 'after_setup_theme', 'lunarfilm_setup' );
+
+/**
+ * Set the content width in pixels.
+ *
+ * @global int $content_width
+ */
+function lunarfilm_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'lunarfilm_content_width', 1200 );
+}
+add_action( 'after_setup_theme', 'lunarfilm_content_width', 0 );
 
 /**
  * Register widget areas.

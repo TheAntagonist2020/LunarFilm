@@ -12,9 +12,9 @@
 		<div class="site-info">
 			<?php
 			printf(
-				/* translators: %s: site title */
+				/* translators: 1: year, 2: site title */
 				esc_html__( '&copy; %1$s %2$s', 'lunarfilm' ),
-				date_i18n( 'Y' ),
+				wp_date( 'Y' ),
 				get_bloginfo( 'name' )
 			);
 			?>
