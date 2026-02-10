@@ -20,3 +20,8 @@ Thumbs.db
 
 # Environment files
 .env
+
+# Build artifacts and archives
+*.zip
+*.tar.gz
+*.rar
