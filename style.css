@@ -22,21 +22,21 @@ Text Domain: lunarfilm
 
 body {
 	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-family: Georgia, "Times New Roman", serif;
 	font-size: 1rem;
 	line-height: 1.6;
-	color: #e0e0e0;
-	background-color: #0a0a0a;
+	color: #d4d4d4;
+	background-color: #0a1520;
 }
 
 a {
-	color: #8ab4f8;
+	color: #c9a961;
 	text-decoration: none;
 }
 
 a:hover,
 a:focus {
-	color: #aecbfa;
+	color: #d4b978;
 	text-decoration: underline;
 }
 
@@ -56,7 +56,7 @@ img {
 /* === Header === */
 .site-header {
 	padding: 2rem 0;
-	border-bottom: 1px solid #222;
+	border-bottom: 1px solid #1a2938;
 }
 
 .site-branding {
@@ -65,6 +65,7 @@ img {
 
 .site-title {
 	margin: 0;
+	font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
 	font-size: 2rem;
 	font-weight: 700;
 	letter-spacing: 0.05em;
@@ -105,8 +106,8 @@ img {
 .menu-toggle {
 	display: none;
 	background: none;
-	border: 1px solid #444;
-	color: #ccc;
+	border: 1px solid #1a2938;
+	color: #d4d4d4;
 	padding: 0.5rem 1rem;
 	cursor: pointer;
 }
@@ -132,7 +133,7 @@ img {
 }
 
 .entry-title a:hover {
-	color: #8ab4f8;
+	color: #c9a961;
 	text-decoration: none;
 }
 
@@ -155,7 +156,7 @@ img {
 	color: #888;
 	margin-top: 1rem;
 	padding-top: 1rem;
-	border-top: 1px solid #222;
+	border-top: 1px solid #1a2938;
 }
 
 .post-thumbnail {
@@ -166,7 +167,7 @@ article.post,
 article.page {
 	margin-bottom: 3rem;
 	padding-bottom: 2rem;
-	border-bottom: 1px solid #1a1a1a;
+	border-bottom: 1px solid #1a2938;
 }
 
 /* === Archive & Search Headers === */
@@ -184,13 +185,13 @@ article.page {
 	display: flex;
 	justify-content: space-between;
 	padding: 2rem 0;
-	border-top: 1px solid #222;
+	border-top: 1px solid #1a2938;
 }
 
 /* === Sidebar === */
 .widget-area {
 	padding: 2rem 0;
-	border-top: 1px solid #222;
+	border-top: 1px solid #1a2938;
 }
 
 .widget {
@@ -207,7 +208,7 @@ article.page {
 /* === Footer === */
 .site-footer {
 	padding: 2rem 0;
-	border-top: 1px solid #222;
+	border-top: 1px solid #1a2938;
 	text-align: center;
 	font-size: 0.8125rem;
 	color: #666;
@@ -216,7 +217,7 @@ article.page {
 /* === Comments === */
 .comments-area {
 	padding: 2rem 0;
-	border-top: 1px solid #222;
+	border-top: 1px solid #1a2938;
 }
 
 .comments-title {
@@ -231,7 +232,7 @@ article.page {
 
 .comment-body {
 	padding: 1rem 0;
-	border-bottom: 1px solid #1a1a1a;
+	border-bottom: 1px solid #1a2938;
 }
 
 /* === 404 === */
@@ -249,21 +250,23 @@ article.page {
 .search-field {
 	flex: 1;
 	padding: 0.5rem;
-	border: 1px solid #333;
-	background: #111;
-	color: #e0e0e0;
+	border: 1px solid #1a2938;
+	background: #0a1520;
+	color: #d4d4d4;
 }
 
 .search-submit {
 	padding: 0.5rem 1rem;
-	border: 1px solid #333;
-	background: #222;
-	color: #e0e0e0;
+	border: 1px solid #1a2938;
+	background: #1a2938;
+	color: #d4d4d4;
 	cursor: pointer;
 }
 
 .search-submit:hover {
-	background: #333;
+	background: #c9a961;
+	color: #0a1520;
+	border-color: #c9a961;
 }
 
 /* === Accessibility === */
@@ -281,10 +284,10 @@ article.page {
 }
 
 .screen-reader-text:focus {
-	background-color: #111;
+	background-color: #0a1520;
 	clip: auto !important;
 	clip-path: none;
-	color: #8ab4f8;
+	color: #c9a961;
 	display: block;
 	font-size: 0.875rem;
 	height: auto;
@@ -294,6 +297,65 @@ article.page {
 	top: 5px;
 	width: auto;
 	z-index: 100000;
+}
+
+/* === Film Reviews & Metadata === */
+.film-rating {
+	margin: 1rem 0;
+	font-size: 1.5rem;
+	color: #c9a961;
+}
+
+.star-full {
+	color: #c9a961;
+}
+
+.star-half {
+	color: #c9a961;
+	opacity: 0.6;
+}
+
+.star-empty {
+	color: #1a2938;
+}
+
+.film-details {
+	margin: 2rem 0;
+	padding: 1.5rem;
+	background: #1a2938;
+	border-left: 3px solid #c9a961;
+}
+
+.film-details h3 {
+	margin-top: 0;
+	color: #c9a961;
+	font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	font-size: 1rem;
+}
+
+.film-details ul {
+	list-style: none;
+	padding: 0;
+	margin: 0.5rem 0 0;
+}
+
+.film-details li {
+	margin-bottom: 0.5rem;
+}
+
+.film-metadata {
+	color: #888;
+	font-size: 0.875rem;
+	margin-top: 0.5rem;
+}
+
+.film-info,
+.film-director,
+.film-year,
+.awards-year {
+	margin-right: 0.5rem;
 }
 
 /* === Responsive === */
