@@ -1,0 +1,49 @@
+.lunara-like-wrap{
+  margin: 18px 0 8px;
+}
+
+.lunara-like-button{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(201, 169, 97, 0.35);
+  background: rgba(0,0,0,0.25);
+  color: rgba(240, 240, 240, 0.95);
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+.lunara-like-button:hover{
+  transform: translateY(-1px);
+  background: rgba(0,0,0,0.35);
+  border-color: rgba(201, 169, 97, 0.55);
+}
+
+.lunara-like-button.is-liked{
+  background: rgba(201, 169, 97, 0.12);
+  border-color: rgba(201, 169, 97, 0.65);
+}
+
+.lunara-like-icon{
+  font-size: 16px;
+  line-height: 1;
+}
+
+.lunara-like-label{
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.lunara-like-count{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.10);
+  font-variant-numeric: tabular-nums;
+}
