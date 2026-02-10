@@ -239,12 +239,25 @@ function lunarfilm_film_details_callback( $post ) {
 		<select id="lunarfilm_rating" name="lunarfilm_rating" style="width: 100%;">
 			<option value=""><?php esc_html_e( 'Select Rating', 'lunarfilm' ); ?></option>
 			<?php
-			for ( $i = 0.5; $i <= 5.0; $i += 0.5 ) {
+			$rating_options = array(
+				'0.5' => '½ (0.5)',
+				'1'   => '★ (1)',
+				'1.5' => '★½ (1.5)',
+				'2'   => '★★ (2)',
+				'2.5' => '★★½ (2.5)',
+				'3'   => '★★★ (3)',
+				'3.5' => '★★★½ (3.5)',
+				'4'   => '★★★★ (4)',
+				'4.5' => '★★★★½ (4.5)',
+				'5'   => '★★★★★ (5)',
+			);
+
+			foreach ( $rating_options as $value => $label ) {
 				printf(
 					'<option value="%s"%s>%s</option>',
-					esc_attr( $i ),
-					selected( $rating, $i, false ),
-					esc_html( str_repeat( '★', floor( $i ) ) . ( fmod( $i, 1 ) === 0.5 ? '½' : '' ) . ' (' . $i . ')' )
+					esc_attr( $value ),
+					selected( $rating, $value, false ),
+					esc_html( $label )
 				);
 			}
 			?>

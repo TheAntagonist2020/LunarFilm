@@ -55,7 +55,7 @@ get_header(); ?>
 				printf(
 					'<span class="byline">%s %s</span>',
 					esc_html__( 'Analysis by', 'lunarfilm' ),
-					get_the_author()
+					esc_html( get_the_author() )
 				);
 				?>
 			</footer>
