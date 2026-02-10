@@ -1,75 +1,104 @@
 # LUNARFILM
 
-A fully standalone, film-focused WordPress theme with complete customization — no parent theme dependency. Hosted on [WordPress.com](https://wordpress.com) and deployed via GitHub.
+A fully standalone, film-focused WordPress theme with complete customization — no parent theme dependency. Designed for WordPress.com Business Plan and deployed via GitHub.
 
-## How to Upload Your Theme Files
+## ✅ Ready for WordPress.com Business Plan
 
-You already have your own theme files ready — here's how to get them into this repository. **Your theme files go directly in the root (top level) of this repository.**
+This theme is now **fully configured** for WordPress.com Business Plan integration with all required files:
 
-### Option 1: Upload via GitHub.com (Easiest — No Tools Required)
+- ✓ **style.css** - Theme stylesheet with proper WordPress headers
+- ✓ **index.php** - Main theme template
+- ✓ **functions.php** - Theme functionality and features
+- ✓ **screenshot.png** - Theme preview image (1200x900px)
+- ✓ **README.txt** - WordPress theme documentation
+- ✓ **.deployignore** - Excludes unnecessary files from deployment
+- ✓ **GitHub Actions workflow** - Automated deployment to WordPress.com
+
+## Quick Start: Connect to WordPress.com
+
+### Prerequisites
+- WordPress.com **Business Plan** or higher (required for custom themes)
+- This GitHub repository
+
+### Setup Steps
+
+1. **Log in to WordPress.com**
+   - Go to your [WordPress.com dashboard](https://wordpress.com/home)
+
+2. **Navigate to GitHub Deployments**
+   - Go to **Hosting** → **GitHub Deployments**
+   - Or visit: `https://wordpress.com/github-deployments/[your-site]`
+
+3. **Connect This Repository**
+   - Click **"Connect to GitHub"** (if first time)
+   - Authenticate with your GitHub account
+   - Select repository: `TheAntagonist2020/LunarFilm`
+   - Choose branch: `main`
+   - Set deployment path: `/` (root)
+
+4. **Deploy Your Theme**
+   - Click **"Deploy"** to start initial deployment
+   - Wait for deployment to complete (usually 1-2 minutes)
+
+5. **Activate Your Theme**
+   - Go to **Appearance** → **Themes** in your WordPress.com dashboard
+   - Find **LUNARFILM** and click **Activate**
+
+6. **Done!** 🎉
+   - Your theme is now live
+   - Any future changes pushed to `main` branch will auto-deploy
+
+## How to Customize Your Theme
+
+### Option 1: Edit via GitHub.com (Quick Changes)
 
 1. Go to your repository: https://github.com/TheAntagonist2020/LunarFilm
-2. Make sure you are on the **`main`** branch (check the dropdown in the top left)
-3. Click the **"Add file"** button → **"Upload files"**
-4. Drag and drop your theme files (e.g. `style.css`, `index.php`, `functions.php`, `header.php`, etc.) into the upload area
-5. Scroll down, add a short description like "Upload my theme files"
-6. Click **"Commit changes"**
-7. Your site will automatically deploy! ✅
+2. Make sure you are on the **`main`** branch
+3. Click on a file to edit (e.g., `style.css`, `functions.php`)
+4. Click the pencil icon (✏️) to edit
+5. Make your changes
+6. Scroll down, add a description of your changes
+7. Click **"Commit changes"**
+8. Changes will automatically deploy to WordPress.com! ✅
 
-> **Tip:** If you have a folder of theme files on your computer, select all the files _inside_ the folder (not the folder itself) and drag them in.
-
-### Option 2: Upload via GitHub Desktop (Recommended for Ongoing Changes)
+### Option 2: Edit via GitHub Desktop (Recommended for Major Changes)
 
 1. Download [GitHub Desktop](https://desktop.github.com/) and sign in
 2. Click **"Clone a repository"** → search for `TheAntagonist2020/LunarFilm` → click **Clone**
-3. Open the cloned folder on your computer (click **"Show in Explorer/Finder"**)
-4. Copy your theme files into this folder (replace existing files if prompted)
-5. Go back to GitHub Desktop — you'll see your changes listed
-6. Type a short summary like "Upload my custom theme" in the bottom left
+3. Open the cloned folder on your computer
+4. Edit theme files with your preferred code editor
+5. Go back to GitHub Desktop — you'll see your changes
+6. Type a summary of your changes in the bottom left
 7. Click **"Commit to main"**
 8. Click **"Push origin"** at the top
-9. Your site will automatically deploy! ✅
+9. Changes will automatically deploy to WordPress.com! ✅
 
-### What Files Go Where?
+## Theme Files Structure
 
-All your WordPress theme files should be placed **directly in the root** of this repository (not inside a subfolder). A typical theme looks like this:
+All WordPress theme files are in the **root** of this repository:
 
 ```
 LunarFilm/                ← this repository
-├── style.css             ← REQUIRED: your theme stylesheet (must have the theme header comment)
-├── index.php             ← REQUIRED: main template file
-├── functions.php         ← theme setup and features
-├── header.php            ← site header and navigation
-├── footer.php            ← site footer
-├── sidebar.php           ← sidebar widget area
-├── single.php            ← single post template
-├── page.php              ← static page template
-├── archive.php           ← archive/category listing
-├── search.php            ← search results page
-├── 404.php               ← "page not found" page
-├── comments.php          ← comments section
-├── screenshot.png        ← theme preview image (optional)
-├── /images/              ← your image assets (optional)
-├── /js/                  ← your JavaScript files (optional)
-├── /css/                 ← additional CSS files (optional)
-└── ... any other theme files you have
+├── style.css             ← ✓ Theme stylesheet with WordPress headers
+├── index.php             ← ✓ Main template file
+├── functions.php         ← ✓ Theme setup and features
+├── header.php            ← ✓ Site header and navigation
+├── footer.php            ← ✓ Site footer
+├── sidebar.php           ← ✓ Sidebar widget area
+├── single.php            ← ✓ Single post template
+├── page.php              ← ✓ Static page template
+├── archive.php           ← ✓ Archive/category listing
+├── search.php            ← ✓ Search results page
+├── 404.php               ← ✓ "Page not found" page
+├── comments.php          ← ✓ Comments section
+├── screenshot.png        ← ✓ Theme preview image (1200x900px)
+├── README.txt            ← ✓ WordPress theme documentation
+└── .deployignore         ← ✓ Files to exclude from deployment
 ```
 
-> **Important:** `style.css` and `index.php` are the two files WordPress **requires** for any theme to work. Make sure those are included.
+## About This Theme
 
-### After Uploading
-
-Once your files are pushed to the `main` branch:
-
-1. The **Publish Website** workflow runs automatically (see the **Actions** tab)
-2. Go to your [WordPress.com dashboard](https://wordpress.com/home)
-3. Navigate to **Hosting** → **GitHub Deployments**
-4. Connect this repository if you haven't already, and select the `main` branch
-5. Your custom theme will be deployed to your site
-
-## About This Repository
-
-This repo contains starter theme files that you can replace with your own. The starter theme is:
+LUNARFILM is a complete WordPress theme with:
 
 - **Fully standalone** — no parent theme dependency
 - **Dark color scheme** designed for film content
@@ -77,20 +106,44 @@ This repo contains starter theme files that you can replace with your own. The s
 - **Widget-ready** with sidebar and footer widget areas
 - **Custom menus** — Primary and Footer menu locations
 - **Custom logo and background** support
+- **Clean, semantic HTML5** markup
+- **Accessibility features** built-in
 
-You can keep these starter files and modify them, or replace them entirely with your own theme.
+## Automatic Deployment
 
-## Deployment
+This repository is configured with GitHub Actions for automatic deployment:
 
-Deployment is automatic. Every time you push changes to the `main` branch, the GitHub Actions workflow (`.github/workflows/wpcom.yml`) packages your theme and makes it available to WordPress.com.
+- **Trigger**: Every push to the `main` branch
+- **Workflow**: `.github/workflows/wpcom.yml`
+- **Result**: Theme automatically packaged and available to WordPress.com
 
-You can also trigger a deployment manually from the [Actions tab](https://github.com/TheAntagonist2020/LunarFilm/actions) by clicking **"Run workflow"**.
+You can also manually trigger deployment from the [Actions tab](https://github.com/TheAntagonist2020/LunarFilm/actions).
 
-## Need Help?
+## Troubleshooting
+
+### Theme Not Showing in WordPress.com
+1. Verify GitHub Deployments is connected in WordPress.com
+2. Check that the `main` branch is selected
+3. Confirm deployment completed in Actions tab
+4. Try manually triggering a deployment
+
+### Changes Not Appearing
+1. Clear WordPress cache (Hosting → Configuration → Clear cache)
+2. Check Actions tab for deployment status
+3. Verify changes were pushed to `main` branch
+4. Hard refresh your browser (Ctrl+F5 or Cmd+Shift+R)
+
+### Deployment Failed
+1. Check Actions tab for error details
+2. Verify all required files exist (style.css, index.php)
+3. Ensure no PHP syntax errors in theme files
+4. Review GitHub Actions workflow logs
+
+## Resources & Support
 
 - [WordPress.com GitHub Deployments Guide](https://wordpress.com/support/github-deployments/)
+- [WordPress Theme Handbook](https://developer.wordpress.org/themes/)
 - [GitHub Desktop Download](https://desktop.github.com/)
-- [GitHub Uploading Files Guide](https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)
 
 ## License
 
