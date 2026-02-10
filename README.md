@@ -1,24 +1,46 @@
 # LUNARFILM
 
-A film-focused website hosted on [WordPress.com](https://wordpress.com).
+A fully standalone, film-focused WordPress theme with complete customization — no parent theme dependency. Hosted on [WordPress.com](https://wordpress.com) and deployed via GitHub.
 
 ## About
 
-LUNARFILM is a website dedicated to film content, deployed and managed through WordPress.com with version control via GitHub.
+LUNARFILM is a custom WordPress theme built from the ground up for total control over design and functionality. It has no parent theme, giving you complete freedom to customize every aspect of your website.
 
 ## Repository Structure
 
 ```
 LunarFilm/
-├── style.css        # Theme stylesheet with metadata header
-├── index.php        # Main template file
-├── functions.php    # Theme functions and setup
+├── style.css        # Theme stylesheet with metadata and base styles
+├── index.php        # Main template file (post listing)
+├── header.php       # Site header, navigation, and HTML head
+├── footer.php       # Site footer and closing HTML
+├── sidebar.php      # Widget-ready sidebar
+├── single.php       # Single post template
+├── page.php         # Static page template
+├── archive.php      # Archive/category listing template
+├── search.php       # Search results template
+├── 404.php          # Custom 404 error page
+├── comments.php     # Comment display and form
+├── functions.php    # Theme setup, menus, widgets, and enqueues
 ├── .gitignore       # Git ignore rules
 ├── README.md        # This file
 └── .github/
     └── workflows/
         └── wpcom.yml  # WordPress.com deployment workflow
 ```
+
+## Theme Features
+
+- **Standalone theme** — no parent theme required
+- **Custom navigation menus** — Primary and Footer menu locations
+- **Widget areas** — Sidebar and Footer widget zones
+- **Custom logo** support
+- **Custom background** support
+- **Featured images** (post thumbnails)
+- **Responsive design** with mobile-first approach
+- **Dark color scheme** designed for film content
+- **Accessible** — skip links and screen reader support
+- **Translation-ready** with full text domain support
 
 ## Deployment
 
@@ -41,6 +63,15 @@ To connect this repository to your WordPress.com site:
 2. Navigate to **Hosting** > **GitHub Deployments**
 3. Connect this repository and select the `main` branch
 4. Choose the deployment target path for your theme
+
+## Customization
+
+Since this is a standalone theme with no parent, you can modify any file directly:
+
+- **Styles** — Edit `style.css` to change the look and feel
+- **Layout** — Edit `header.php`, `footer.php`, and template files
+- **Functionality** — Edit `functions.php` to add or change features
+- **Templates** — Add new template files as needed (e.g., `front-page.php`, `category.php`)
 
 ## License
 

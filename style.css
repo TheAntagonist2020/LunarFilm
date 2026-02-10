@@ -3,9 +3,321 @@ Theme Name: LUNARFILM
 Theme URI: https://github.com/TheAntagonist2020/LunarFilm
 Author: TheAntagonist2020
 Author URI: https://github.com/TheAntagonist2020
-Description: A film-focused WordPress theme for the LUNARFILM website.
+Description: A fully standalone, film-focused WordPress theme with complete customization and no parent theme dependency.
 Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 7.4
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: lunarfilm
 */
+
+/* === Reset & Base === */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-size: 1rem;
+	line-height: 1.6;
+	color: #e0e0e0;
+	background-color: #0a0a0a;
+}
+
+a {
+	color: #8ab4f8;
+	text-decoration: none;
+}
+
+a:hover,
+a:focus {
+	color: #aecbfa;
+	text-decoration: underline;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+/* === Layout === */
+.site {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 1.5rem;
+}
+
+/* === Header === */
+.site-header {
+	padding: 2rem 0;
+	border-bottom: 1px solid #222;
+}
+
+.site-branding {
+	margin-bottom: 1rem;
+}
+
+.site-title {
+	margin: 0;
+	font-size: 2rem;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+.site-title a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.site-description {
+	margin: 0.25rem 0 0;
+	color: #999;
+	font-size: 0.875rem;
+}
+
+/* === Navigation === */
+.main-navigation ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	gap: 1.5rem;
+}
+
+.main-navigation a {
+	color: #ccc;
+	font-size: 0.875rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.main-navigation a:hover {
+	color: #fff;
+}
+
+.menu-toggle {
+	display: none;
+	background: none;
+	border: 1px solid #444;
+	color: #ccc;
+	padding: 0.5rem 1rem;
+	cursor: pointer;
+}
+
+/* === Main Content === */
+.site-main {
+	padding: 2rem 0;
+}
+
+/* === Entry (Posts & Pages) === */
+.entry-header {
+	margin-bottom: 1.5rem;
+}
+
+.entry-title {
+	font-size: 1.75rem;
+	margin: 0 0 0.5rem;
+	line-height: 1.3;
+}
+
+.entry-title a {
+	color: #ffffff;
+}
+
+.entry-title a:hover {
+	color: #8ab4f8;
+	text-decoration: none;
+}
+
+.entry-meta {
+	font-size: 0.8125rem;
+	color: #888;
+}
+
+.entry-meta .posted-on::after {
+	content: " · ";
+}
+
+.entry-content,
+.entry-summary {
+	margin-bottom: 1.5rem;
+}
+
+.entry-footer {
+	font-size: 0.8125rem;
+	color: #888;
+	margin-top: 1rem;
+	padding-top: 1rem;
+	border-top: 1px solid #222;
+}
+
+.post-thumbnail {
+	margin-bottom: 1.5rem;
+}
+
+article.post,
+article.page {
+	margin-bottom: 3rem;
+	padding-bottom: 2rem;
+	border-bottom: 1px solid #1a1a1a;
+}
+
+/* === Archive & Search Headers === */
+.page-header {
+	margin-bottom: 2rem;
+}
+
+.page-title {
+	font-size: 1.5rem;
+	margin: 0;
+}
+
+/* === Pagination === */
+.nav-links {
+	display: flex;
+	justify-content: space-between;
+	padding: 2rem 0;
+	border-top: 1px solid #222;
+}
+
+/* === Sidebar === */
+.widget-area {
+	padding: 2rem 0;
+	border-top: 1px solid #222;
+}
+
+.widget {
+	margin-bottom: 2rem;
+}
+
+.widget-title {
+	font-size: 1rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	margin-bottom: 1rem;
+}
+
+/* === Footer === */
+.site-footer {
+	padding: 2rem 0;
+	border-top: 1px solid #222;
+	text-align: center;
+	font-size: 0.8125rem;
+	color: #666;
+}
+
+/* === Comments === */
+.comments-area {
+	padding: 2rem 0;
+	border-top: 1px solid #222;
+}
+
+.comments-title {
+	font-size: 1.25rem;
+	margin-bottom: 1.5rem;
+}
+
+.comment-list {
+	list-style: none;
+	padding: 0;
+}
+
+.comment-body {
+	padding: 1rem 0;
+	border-bottom: 1px solid #1a1a1a;
+}
+
+/* === 404 === */
+.error-404 {
+	text-align: center;
+	padding: 4rem 0;
+}
+
+/* === Search Form === */
+.search-form {
+	display: flex;
+	max-width: 400px;
+}
+
+.search-field {
+	flex: 1;
+	padding: 0.5rem;
+	border: 1px solid #333;
+	background: #111;
+	color: #e0e0e0;
+}
+
+.search-submit {
+	padding: 0.5rem 1rem;
+	border: 1px solid #333;
+	background: #222;
+	color: #e0e0e0;
+	cursor: pointer;
+}
+
+.search-submit:hover {
+	background: #333;
+}
+
+/* === Accessibility === */
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+	background-color: #111;
+	clip: auto !important;
+	clip-path: none;
+	color: #8ab4f8;
+	display: block;
+	font-size: 0.875rem;
+	height: auto;
+	left: 5px;
+	padding: 1rem;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+	.menu-toggle {
+		display: block;
+	}
+
+	.main-navigation ul {
+		display: none;
+		flex-direction: column;
+		gap: 0.5rem;
+		padding-top: 1rem;
+	}
+
+	.main-navigation.toggled ul {
+		display: flex;
+	}
+
+	.entry-title {
+		font-size: 1.35rem;
+	}
+
+	.site-title {
+		font-size: 1.5rem;
+	}
+}
